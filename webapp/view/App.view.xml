@@ -1,0 +1,7 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="br.com.salesorderapproval.SalesOrderApproval.controller.App" xmlns:html="http://www.w3.org/1999/xhtml">
+	
+	<SplitApp id="idAppControl"></SplitApp>
+		
+	
+</mvc:View>

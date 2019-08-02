@@ -1,0 +1,107 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="br.com.salesorderapproval.SalesOrderApproval.controller.Detail">
+	<App>
+		<pages>
+			<Page title="{i18n>DetailTitle}" showNavButton="{device>/system/phone}" navButtonPress="onNavBack" >
+			<content>
+			    <ObjectHeader title="{SalesOrderID}" number="{GrossAmount}" numberUnit="{CurrencyCode}" intro="{i18n>DetailIntro}" introActive="true" titleActive="true" id="__header0" icon="sap-icon://sales-order" numberState="Success">
+			        <attributes>
+			            <ObjectAttribute text="{CustomerName}" id="__attribute18"/>
+			            <ObjectAttribute text="{path: 'CreatedAt', formatter: '.Formatter.date'}" id="__attribute19"/>
+			        </attributes>
+			    <statuses>
+			        <ObjectStatus text="{path: 'LifecycleStatus', formatter: '.Formatter.statusText'}" id="__status30" state="{path: 'LifecycleStatus', formatter: '.Formatter.statusState'}"/>
+			    </statuses>
+			    </ObjectHeader>
+			    <IconTabBar id="__bar0">
+			        <items>
+			            <IconTabFilter text="{i18n>Items}" icon="sap-icon://sales-order-item" iconColor="Positive" id="__filter1">
+			                <content>
+			                    <Table noDataText="Drop column list items here and columns in the area above" items="{ToLineItems}" id="__table0">
+			                        <items>
+			                            <ColumnListItem>
+			                                <cells>
+			                                	<ObjectIdentifier title="{ProductID}"/>
+			                                    <Text text="{Note}"/>
+			                                    <Text text="{Quantity}"/>
+			                                    <ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}"/>
+			                                    <ObjectNumber number="{TaxAmount}" unit="{CurrencyCode}"/>
+			                                    <ObjectNumber number="{NetAmount}" unit="{CurrencyCode}"/>
+			                                    
+			                                 </cells>
+			                            </ColumnListItem>
+			                        </items>
+			                        <columns>
+			                            <Column>
+			                                <header>
+			                                    <Label text="{i18n>ProductName}"/>
+			                                </header>
+			                            </Column>
+			                            <Column>
+			                                <header>
+			                                    <Label text="{i18n>Note}"/>
+			                                </header>
+			                            </Column>
+			                            <Column>
+			                                <header>
+			                                    <Label text="{i18n>Quantity}"/>
+			                                </header>
+			                            </Column>
+			                            <Column>
+			                                <header>
+			                                    <Label text="{i18n>GrossAmount}"/>
+			                                </header>
+			                            </Column>
+			                            <Column>
+			                                <header>
+			                                    <Label text="{i18n>TaxAmount}"/>
+			                                </header>
+			                            </Column>
+			                            <Column>
+			                                <header>
+			                                    <Label text="{i18n>NetAmount}"/>
+			                                </header>
+			                            </Column>
+			                            
+			                            </columns>
+			                            </Table>
+			                </content>
+			            </IconTabFilter>
+			            <IconTabFilter text="{i18n>Employee}" icon="sap-icon://employee" iconColor="Critical" id="__filter2">
+			                <content>
+			                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" minWidth="1024" layout="ResponsiveGridLayout" id="__form0">
+			                        <sap.ui.layout.form:content>
+			                            <core:Title text="{i18n>BusinessPartner}" id="__title0"/>
+			                            <Label text="{i18n>CompanyName}"/>
+			                            <Text text="{CompanyName}"/>
+			                           
+			                            <Label text="{i18n>EmailAddress}"/>
+			                            <Text text="{EmailAddress}"/>
+			                            
+			                            <Label text="{i18n>Phone}"/>
+			                            <Text text="{PhoneNumber}"/>
+			                            
+			                            <Label text="{i18n>Address}"/>
+			                            <Text text="{Address/Street}"/>
+			                            
+			                            <Label text="{i18n>Country}"/>
+			                            <Text text="{Address/Country}"/>
+			                            
+			                            
+			                            </sap.ui.layout.form:content>
+			                    </sap.ui.layout.form:SimpleForm>
+			                </content>
+			            </IconTabFilter></items>
+			    </IconTabBar>
+			</content>
+			<footer>
+			    <Bar id="__bar1">
+			        <contentRight>
+			            <Button text="{i18n>ReproveButtonText}" width="120px" id="__button0" icon="sap-icon://decline" press="handleReprove" type="Reject"/>
+			            <Button text="{i18n>ApproveButtonText}" width="120px" id="__button1" icon="sap-icon://accept" press="handleApprove" type="Accept"/>
+			        </contentRight>
+			    </Bar>
+			</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

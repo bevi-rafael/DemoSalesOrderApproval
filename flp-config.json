@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "br.com.salesorderapproval.SalesOrderApproval.SalesOrderApproval",
+        "description": "Sales Order Approval App",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#SalesOrderApproval-Display",
+        "navigationComponentName": "br.com.salesorderapproval.SalesOrderApproval",
+        "intentSemanticObject": "SalesOrderApproval",
+        "intentAction": "Display",
+        "html5ApplicationName": "salesorderapproval",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "4a1f5995-dd31-4c60-80e9-d803c7d15d99"
+        ],
+        "contentPackages": [
+            "5c369a31-6860-4b22-a280-4eb692f5147d"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Approval Orders",
+        "subtitle": "App for Approval Orders",
+        "searchKeywords": "Approval Orders,App for Approval Orders",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

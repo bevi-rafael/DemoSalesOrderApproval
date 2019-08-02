@@ -1,0 +1,43 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="br.com.salesorderapproval.SalesOrderApproval.controller.Master" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>MasterTitle}">
+				<content>
+				    <List noDataText="Drop list items here" id="__list0" items="{/SalesOrderSet}">
+				    <items>
+				        <ObjectListItem type="Active" title="{SalesOrderID}" press="handleListItemPress" number="{GrossAmount}" numberUnit="{CurrencyCode}" id="__item1">
+				            <attributes>
+				                <ObjectAttribute text="{CustomerName}" id="__attribute0"/>
+				            </attributes>
+				            <firstStatus>
+				                <ObjectStatus text="{path: 'CreatedAt', formatter: '.Formatter.date'}" id="__status0"/>
+				            </firstStatus>
+				            <secondStatus>
+				                <ObjectStatus id="__status1" text="{path: 'LifecycleStatus', formatter: '.Formatter.statusText'}" state="{path: 'LifecycleStatus', formatter: '.Formatter.statusState'}"/>
+				            </secondStatus></ObjectListItem>
+				    </items>
+				    </List>
+				</content>
+			<subHeader>
+			    <Bar id="__bar0">
+			        <contentLeft>
+			            <SearchField width="100%" placeholder="Procurar" liveChange="handleSearch" id="__field0"/>
+			        </contentLeft>
+			    </Bar>
+			</subHeader>
+			<footer>
+			    <Bar id="__bar1">
+			        <contentRight>
+			            <Select xmlns:sap.ui.core="sap.ui.core" change="handleGroup" type="IconOnly" icon="sap-icon://group-2" autoAdjustWidth="true">
+			                <items>
+			                    <sap.ui.core:ListItem text="{i18n>MasterGroupNone}" key="None" id="__item0"/>
+			                    <sap.ui.core:ListItem text="{i18n>MasterGroupStatus}" key="LifecycleStatus" id="__item2"/>
+			                    <sap.ui.core:ListItem text="{i18n>MasterGroupAmount}" key="GrossAmount" id="__item3"/></items>
+			            </Select>
+			        </contentRight>
+			    </Bar>
+			</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

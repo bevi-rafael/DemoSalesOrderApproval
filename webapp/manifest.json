@@ -1,0 +1,156 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "br.com.salesorderapproval.SalesOrderApproval",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"gwsample_basic": {
+				"uri": "/Gateway_SAPES5/sap/opu/odata/IWBEP/gwsample_basic/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "br.com.salesorderapproval.SalesOrderApproval.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "br.com.salesorderapproval.SalesOrderApproval.i18n.i18n"
+				}
+			},
+			"": {
+				"uri": "/Gateway_SAPES5/sap/opu/odata/IWBEP/gwsample_basic/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "gwsample_basic",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "br.com.salesorderapproval.SalesOrderApproval.view",
+				"controlAggregation": "detailPages",
+				"controlId": "idAppControl",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "TargetMaster",
+					"pattern": "",
+					"target": [
+						"TargetMaster"
+					]
+				},
+				{
+					"name": "Detail",
+					"pattern": "Orders/{orderID}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Detail"
+					]
+				}
+			],
+			"targets": {
+				"TargetMaster": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "Master",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "br.com.salesorderapproval.SalesOrderApproval.view",
+					"controlAggregation": "masterPages",
+					"controlId": "idAppControl",
+					"viewLevel": 1
+				},
+				"App": {
+					"viewType": "XML",
+					"viewName": "App",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "br.com.salesorderapproval.SalesOrderApproval.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
+					"controlId": "idAppControl",
+					"viewPath": "br.com.salesorderapproval.SalesOrderApproval.view"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
